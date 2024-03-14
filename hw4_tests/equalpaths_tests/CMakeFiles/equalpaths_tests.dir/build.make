@@ -81,8 +81,8 @@ equalpaths_tests/equalpaths_tests: equalpaths_tests/CMakeFiles/equalpaths_tests.
 equalpaths_tests/equalpaths_tests: equalpaths_tests/CMakeFiles/equalpaths_tests.dir/build.make
 equalpaths_tests/equalpaths_tests: equalpaths_tests/libhw4_equalpaths.a
 equalpaths_tests/equalpaths_tests: testing_utils/libtesting_utils.a
-equalpaths_tests/equalpaths_tests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
-equalpaths_tests/equalpaths_tests: /usr/lib/x86_64-linux-gnu/libgtest.a
+equalpaths_tests/equalpaths_tests: /usr/lib/aarch64-linux-gnu/libgtest_main.a
+equalpaths_tests/equalpaths_tests: /usr/lib/aarch64-linux-gnu/libgtest.a
 equalpaths_tests/equalpaths_tests: testing_utils/kwsys/libkwsys.a
 equalpaths_tests/equalpaths_tests: equalpaths_tests/CMakeFiles/equalpaths_tests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/work/homework/hw4/hw4_tests/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable equalpaths_tests"

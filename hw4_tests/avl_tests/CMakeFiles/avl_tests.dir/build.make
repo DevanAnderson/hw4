@@ -95,8 +95,8 @@ avl_tests/avl_tests: avl_tests/CMakeFiles/avl_tests.dir/test_insert.cpp.o
 avl_tests/avl_tests: avl_tests/CMakeFiles/avl_tests.dir/test_remove.cpp.o
 avl_tests/avl_tests: avl_tests/CMakeFiles/avl_tests.dir/build.make
 avl_tests/avl_tests: testing_utils/libtesting_utils.a
-avl_tests/avl_tests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
-avl_tests/avl_tests: /usr/lib/x86_64-linux-gnu/libgtest.a
+avl_tests/avl_tests: /usr/lib/aarch64-linux-gnu/libgtest_main.a
+avl_tests/avl_tests: /usr/lib/aarch64-linux-gnu/libgtest.a
 avl_tests/avl_tests: testing_utils/kwsys/libkwsys.a
 avl_tests/avl_tests: avl_tests/CMakeFiles/avl_tests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/work/homework/hw4/hw4_tests/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable avl_tests"

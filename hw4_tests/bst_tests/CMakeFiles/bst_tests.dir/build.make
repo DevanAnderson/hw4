@@ -110,8 +110,8 @@ bst_tests/bst_tests: bst_tests/CMakeFiles/bst_tests.dir/test_remove.cpp.o
 bst_tests/bst_tests: bst_tests/CMakeFiles/bst_tests.dir/test_balance.cpp.o
 bst_tests/bst_tests: bst_tests/CMakeFiles/bst_tests.dir/build.make
 bst_tests/bst_tests: testing_utils/libtesting_utils.a
-bst_tests/bst_tests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
-bst_tests/bst_tests: /usr/lib/x86_64-linux-gnu/libgtest.a
+bst_tests/bst_tests: /usr/lib/aarch64-linux-gnu/libgtest_main.a
+bst_tests/bst_tests: /usr/lib/aarch64-linux-gnu/libgtest.a
 bst_tests/bst_tests: testing_utils/kwsys/libkwsys.a
 bst_tests/bst_tests: bst_tests/CMakeFiles/bst_tests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/work/homework/hw4/hw4_tests/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable bst_tests"
