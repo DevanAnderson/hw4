@@ -239,7 +239,7 @@ protected:
     Node<Key, Value>* internalFind(const Key& k) const; // TODO
     Node<Key, Value> *getSmallestNode() const;  // TODO
     static Node<Key, Value>* predecessor(Node<Key, Value>* current); // TODO
-    //static Node<Key, Value>* successor(Node<Key, Value>* curent);// TODO
+    static Node<Key, Value>* successor(Node<Key, Value>* curent);// TODO
     // Note:  static means these functions don't have a "this" pointer
     //        and instead just use the input argument.
 
@@ -343,6 +343,7 @@ BinarySearchTree<Key, Value>::iterator::operator++()
     if(current_->getRight() == nullptr){
         //check if there is a parent, if there is a parent and the left child of the parent is not the current, continue traversing up the tree
         //will NOT cause a fault because of short circuiting (false and anything = false, true or anything = true, so no need to check second condition)
+        //divine intellect
         while(current_->getParent() != nullptr && current_->getParent()->getLeft() != current_){
             current_ = current_->getParent();
         }
@@ -480,6 +481,7 @@ void BinarySearchTree<Key, Value>::insert(const std::pair<const Key, Value> &key
             }
             else{
                 current->setLeft(new Node<Key, Value>(keyValuePair.first, keyValuePair.second, current));
+                current->getLeft()->setParent(current);
                 return;
             }
         }
@@ -489,6 +491,7 @@ void BinarySearchTree<Key, Value>::insert(const std::pair<const Key, Value> &key
             }
             else{
                 current->setRight(new Node<Key, Value>(keyValuePair.first, keyValuePair.second, current));
+                current->getRight()->setParent(current);
                 return;
             }
         }
@@ -722,6 +725,22 @@ BinarySearchTree<Key, Value>::predecessor(Node<Key, Value>* current)
     return current->getParent();
 }
 
+template<class Key, class Value>
+Node<Key, Value>* BinarySearchTree<Key, Value>::successor(Node<Key, Value>* current){
+    if(current->getRight() != nullptr){
+        current = current->getRight();
+        while(current->getLeft() != nullptr){
+            current = current->getLeft();
+        }
+        return current;
+    }
+
+    while(current->getParent() != nullptr || current->getParent()->getRight() == current){
+        current = current->getParent();
+    }
+    return current->getParent();
+}
+
 
 /**
 * A method to remove all contents of the tree and
@@ -804,11 +823,15 @@ bool BinarySearchTree<Key, Value>::balanced(Node<Key, Value>* root) const{
         return true;
     }
 
+    //balance factor is defined as the right minus the left
     int balanceFactor = height(root->getRight()) - height(root->getLeft());
+
+    //return false if the balance factor is greater than 1 or less than -1
     if(balanceFactor < -1 || balanceFactor > 1){
         return false;
     }
 
+    //return true if the left and right subtrees are balanced
     return balanced(root->getLeft()) && balanced(root->getRight());
 }
 
@@ -821,6 +844,7 @@ int BinarySearchTree<Key, Value>::height(Node<Key, Value>* root) const{
     int left = height(root->getLeft()) + 1;
     int right = height(root->getRight()) + 1;
 
+    //return the max height of the two
     if(left > right){
         return left;
     }
